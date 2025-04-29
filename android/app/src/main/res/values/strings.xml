@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SpamCallDetector</string>
+    <string name="DialerActivityLabel">...</string>
+</resources>
