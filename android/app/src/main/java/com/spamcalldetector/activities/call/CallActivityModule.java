@@ -214,7 +214,7 @@ public class CallActivityModule extends ReactContextBaseJavaModule {
             if (call != null) {
                 List<Call> childCalls = call.getChildren();
 
-                // 🟡 If this is a conference call with multiple participants
+                // If this is a conference call with multiple participants
                 if (childCalls != null && !childCalls.isEmpty()) {
                     WritableArray numbersArray = Arguments.createArray();
 

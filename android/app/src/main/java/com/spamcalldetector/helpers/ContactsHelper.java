@@ -12,6 +12,13 @@ import androidx.core.content.ContextCompat;
 
 public class ContactsHelper {
 
+    /**
+     * Get contact name from phone number (new method name for compatibility)
+     */
+    public static String getContactNameFromNumber(Context context, String phoneNumber) {
+        return getContactNameByPhoneNumber(phoneNumber, context);
+    }
+
     public static String getContactNameByPhoneNumber(String phone_number, Context context) {
 
         String contactName = "";
@@ -33,7 +40,7 @@ public class ContactsHelper {
             }
 
             if (contactName.equals("")) {
-                contactName = Constant.BIZ4_UNKNOWN_CALLER_NAME;
+                contactName = Constants.BIZ4_UNKNOWN_CALLER_NAME;
             }
 
         } else {

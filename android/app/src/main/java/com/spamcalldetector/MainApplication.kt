@@ -15,10 +15,13 @@ import android.content.res.Configuration
 import com.facebook.react.bridge.ReactApplicationContext;
 
 import com.spamcalldetector.activities.call.CallActivityPackage
+import com.spamcalldetector.activities.call.CallHistoryPackage
+import com.spamcalldetector.activities.call.MissedCallPackage
 import com.spamcalldetector.activities.role.DialerRoleManagerPackage
 import com.spamcalldetector.activities.dialer.DialerPackage
 import com.spamcalldetector.activities.permission.ManageExternalStoragePackage
 import com.spamcalldetector.activities.contacts.ContactsPackage
+import com.spamcalldetector.utils.PermissionManagerPackage
 import com.zmxv.RNSound.RNSoundPackage;
 
 class MainApplication : Application(), ReactApplication {
@@ -28,12 +31,15 @@ class MainApplication : Application(), ReactApplication {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
-              add(DialerRoleManagerPackage());
-              add(DialerPackage());
-              add(CallActivityPackage());
-              add(ManageExternalStoragePackage());
-              add(ContactsPackage());
-              add(RNSoundPackage());
+              add(DialerRoleManagerPackage()).also { android.util.Log.d("MainApplication", "Added DialerRoleManagerPackage") };
+              add(DialerPackage()).also { android.util.Log.d("MainApplication", "Added DialerPackage") };
+              add(CallActivityPackage()).also { android.util.Log.d("MainApplication", "Added CallActivityPackage") };
+              add(ManageExternalStoragePackage()).also { android.util.Log.d("MainApplication", "Added ManageExternalStoragePackage") };
+              add(ContactsPackage()).also { android.util.Log.d("MainApplication", "Added ContactsPackage") };
+              add(RNSoundPackage()).also { android.util.Log.d("MainApplication", "Added RNSoundPackage") };
+              add(CallHistoryPackage()).also { android.util.Log.d("MainApplication", "Added CallHistoryPackage") };
+              add(MissedCallPackage()).also { android.util.Log.d("MainApplication", "Added MissedCallPackage") };
+              add(PermissionManagerPackage()).also { android.util.Log.d("MainApplication", "Added PermissionManagerPackage") };
             }
 
         override fun getJSMainModuleName(): String = "index"
